@@ -1,0 +1,799 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===================== iOS 스타일 ===================== */
+:root {
+  --font-ios: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", var(--font-inter),
+    "Apple SD Gothic Neo", var(--font-kr), "Malgun Gothic", sans-serif;
+  --ios-blue: #0a84ff;
+  --ios-gray-bubble: #e9e9eb;
+}
+
+.ios-root {
+  font-family: var(--font-ios);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.ios-root img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* 앱 열기/닫기 */
+@keyframes ios-app-open {
+  from {
+    transform: scale(0.12);
+    opacity: 0;
+    border-radius: 60px;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+    border-radius: 0;
+  }
+}
+@keyframes ios-app-close {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.12);
+    opacity: 0;
+    border-radius: 60px;
+  }
+}
+.ios-app-open {
+  animation: ios-app-open 420ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+.ios-app-close {
+  animation: ios-app-close 320ms cubic-bezier(0.4, 0, 0.6, 1) both;
+}
+
+/* 화면 밀어서 들어오기 (대화방 진입) */
+@keyframes ios-push {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.ios-push {
+  animation: ios-push 380ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+@keyframes ios-pop-back {
+  from {
+    transform: translateX(-30%);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.ios-pop-back {
+  animation: ios-pop-back 380ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+
+/* 잠금화면 알림 */
+@keyframes ios-notif-in {
+  from {
+    transform: translateY(24px) scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+.ios-notif-in {
+  animation: ios-notif-in 520ms cubic-bezier(0.2, 0.9, 0.25, 1.1) both;
+}
+
+/* 상단 배너 알림 */
+@keyframes ios-banner-in {
+  from {
+    transform: translateY(-140%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.ios-banner-in {
+  animation: ios-banner-in 480ms cubic-bezier(0.2, 0.9, 0.25, 1.1) both;
+}
+
+/* 홈 화면 진입 */
+@keyframes ios-home-in {
+  from {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.ios-home-in {
+  animation: ios-home-in 520ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+
+/* 말풍선 등장 */
+@keyframes ios-bubble-in {
+  from {
+    transform: scale(0.6) translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+.ios-bubble-in {
+  animation: ios-bubble-in 360ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+  transform-origin: bottom left;
+}
+
+/* 입력 중 ... */
+@keyframes ios-typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+.ios-typing-dot {
+  animation: ios-typing 1.2s infinite ease-in-out;
+}
+.ios-typing-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.ios-typing-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* iMessage 말풍선 꼬리 */
+.bubble {
+  position: relative;
+}
+.bubble > span {
+  position: relative;
+  z-index: 2;
+}
+.bubble-me.bubble-tail::before,
+.bubble-them.bubble-tail::before,
+.bubble-me.bubble-tail::after,
+.bubble-them.bubble-tail::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 20px;
+}
+.bubble-me.bubble-tail::before {
+  right: -7px;
+  width: 20px;
+  background: var(--ios-blue);
+  border-bottom-left-radius: 16px 14px;
+}
+.bubble-me.bubble-tail::after {
+  right: -26px;
+  width: 26px;
+  background: #fff;
+  border-bottom-left-radius: 10px;
+}
+.bubble-them.bubble-tail::before {
+  left: -7px;
+  width: 20px;
+  background: var(--ios-gray-bubble);
+  border-bottom-right-radius: 16px 14px;
+}
+.bubble-them.bubble-tail::after {
+  left: -26px;
+  width: 26px;
+  background: #fff;
+  border-bottom-right-radius: 10px;
+}
+
+/* 앱 아이콘 눌림 */
+.ios-press {
+  transition:
+    transform 180ms cubic-bezier(0.3, 0.7, 0.4, 1.4),
+    filter 180ms ease;
+}
+.ios-press:active {
+  transform: scale(0.86);
+  filter: brightness(0.7);
+}
+
+.font-insta {
+  font-family: var(--font-insta), cursive;
+}
+
+/* PC에서 브라우저 창 높이가 낮으면 폰을 살짝 줄여서 전부 보이게 함 */
+@media (min-width: 768px) and (max-height: 940px) {
+  .phone-zoom { zoom: 0.88; }
+}
+@media (min-width: 768px) and (max-height: 830px) {
+  .phone-zoom { zoom: 0.78; }
+}
+@media (min-width: 768px) and (max-height: 730px) {
+  .phone-zoom { zoom: 0.68; }
+}
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --radius: 0.625rem;
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ===================== iOS 스타일 ===================== */
+:root {
+  --font-ios: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", var(--font-inter),
+    "Apple SD Gothic Neo", var(--font-kr), "Malgun Gothic", sans-serif;
+  --ios-blue: #0a84ff;
+  --ios-gray-bubble: #e9e9eb;
+}
+
+.ios-root {
+  font-family: var(--font-ios);
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.ios-root img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* 앱 열기/닫기 */
+@keyframes ios-app-open {
+  from {
+    transform: scale(0.12);
+    opacity: 0;
+    border-radius: 60px;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+    border-radius: 0;
+  }
+}
+@keyframes ios-app-close {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.12);
+    opacity: 0;
+    border-radius: 60px;
+  }
+}
+.ios-app-open {
+  animation: ios-app-open 420ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+.ios-app-close {
+  animation: ios-app-close 320ms cubic-bezier(0.4, 0, 0.6, 1) both;
+}
+
+/* 화면 밀어서 들어오기 (대화방 진입) */
+@keyframes ios-push {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.ios-push {
+  animation: ios-push 380ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+@keyframes ios-pop-back {
+  from {
+    transform: translateX(-30%);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.ios-pop-back {
+  animation: ios-pop-back 380ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+
+/* 잠금화면 알림 */
+@keyframes ios-notif-in {
+  from {
+    transform: translateY(24px) scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+.ios-notif-in {
+  animation: ios-notif-in 520ms cubic-bezier(0.2, 0.9, 0.25, 1.1) both;
+}
+
+/* 상단 배너 알림 */
+@keyframes ios-banner-in {
+  from {
+    transform: translateY(-140%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.ios-banner-in {
+  animation: ios-banner-in 480ms cubic-bezier(0.2, 0.9, 0.25, 1.1) both;
+}
+
+/* 홈 화면 진입 */
+@keyframes ios-home-in {
+  from {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+.ios-home-in {
+  animation: ios-home-in 520ms cubic-bezier(0.2, 0.9, 0.25, 1) both;
+}
+
+/* 말풍선 등장 */
+@keyframes ios-bubble-in {
+  from {
+    transform: scale(0.6) translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+.ios-bubble-in {
+  animation: ios-bubble-in 360ms cubic-bezier(0.2, 0.9, 0.3, 1.2) both;
+  transform-origin: bottom left;
+}
+
+/* 입력 중 ... */
+@keyframes ios-typing {
+  0%,
+  60%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+}
+.ios-typing-dot {
+  animation: ios-typing 1.2s infinite ease-in-out;
+}
+.ios-typing-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+.ios-typing-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+/* iMessage 말풍선 꼬리 */
+.bubble {
+  position: relative;
+}
+.bubble > span {
+  position: relative;
+  z-index: 2;
+}
+.bubble-me.bubble-tail::before,
+.bubble-them.bubble-tail::before,
+.bubble-me.bubble-tail::after,
+.bubble-them.bubble-tail::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 20px;
+}
+.bubble-me.bubble-tail::before {
+  right: -7px;
+  width: 20px;
+  background: var(--ios-blue);
+  border-bottom-left-radius: 16px 14px;
+}
+.bubble-me.bubble-tail::after {
+  right: -26px;
+  width: 26px;
+  background: #fff;
+  border-bottom-left-radius: 10px;
+}
+.bubble-them.bubble-tail::before {
+  left: -7px;
+  width: 20px;
+  background: var(--ios-gray-bubble);
+  border-bottom-right-radius: 16px 14px;
+}
+.bubble-them.bubble-tail::after {
+  left: -26px;
+  width: 26px;
+  background: #fff;
+  border-bottom-right-radius: 10px;
+}
+
+/* 앱 아이콘 눌림 */
+.ios-press {
+  transition:
+    transform 180ms cubic-bezier(0.3, 0.7, 0.4, 1.4),
+    filter 180ms ease;
+}
+.ios-press:active {
+  transform: scale(0.86);
+  filter: brightness(0.7);
+}
+
+.font-insta {
+  font-family: var(--font-insta), cursive;
+}
+
+/* PC에서 브라우저 창 높이가 낮으면 폰을 살짝 줄여서 전부 보이게 함 */
+@media (min-width: 768px) and (max-height: 940px) {
+  .phone-zoom { zoom: 0.88; }
+}
+@media (min-width: 768px) and (max-height: 830px) {
+  .phone-zoom { zoom: 0.78; }
+}
+@media (min-width: 768px) and (max-height: 730px) {
+  .phone-zoom { zoom: 0.68; }
+}
